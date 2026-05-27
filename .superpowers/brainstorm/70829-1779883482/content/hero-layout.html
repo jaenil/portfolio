@@ -1,0 +1,69 @@
+<h2>Which hero feels right?</h2>
+<p class="subtitle">Same content, three takes. Each implies a different personality. Sans-serif vs serif also varies — pay attention to the type.</p>
+
+<div class="cards">
+  <div class="card" data-choice="left-quiet" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#0a0a0a;color:#fafafa;padding:40px 32px;min-height:360px;font-family:ui-sans-serif,system-ui;display:flex;flex-direction:column;justify-content:space-between;">
+      <div style="display:flex;justify-content:space-between;font-size:11px;letter-spacing:2px;text-transform:uppercase;opacity:0.5;">
+        <span>Jaenil Parekh</span>
+        <span>work · about · contact</span>
+      </div>
+      <div>
+        <div style="font-size:11px;letter-spacing:2px;opacity:0.4;text-transform:uppercase;margin-bottom:14px;">— Currently · IIT Jodhpur '27</div>
+        <div style="font-size:42px;font-weight:500;line-height:1.05;letter-spacing:-0.02em;max-width:520px;">I build full-stack systems that hold up under real traffic.</div>
+        <div style="margin-top:18px;font-size:14px;opacity:0.55;line-height:1.55;max-width:480px;">Computer Science undergrad. Recent work: a multi-agent trading assistant with BlackRock, the official Ignus '26 fest site (6k concurrent users), and a proctored online exam platform.</div>
+      </div>
+      <div style="display:flex;gap:18px;font-size:12px;opacity:0.7;">→ github &nbsp;·&nbsp; linkedin &nbsp;·&nbsp; email &nbsp;·&nbsp; cv</div>
+    </div>
+    <div class="card-body">
+      <h3>A · Quiet left-aligned</h3>
+      <p>Sans-serif. Bottom-anchored content. Minimal nav. Tone reads as "competent, doesn't need to shout." Closest to Vercel/Linear hires-page energy.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="serif-editorial" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#fafaf7;color:#111;padding:40px 32px;min-height:360px;font-family:'Times New Roman',Georgia,serif;display:flex;flex-direction:column;justify-content:space-between;">
+      <div style="display:flex;justify-content:space-between;font-size:11px;letter-spacing:3px;text-transform:uppercase;font-family:ui-sans-serif,system-ui;font-weight:500;">
+        <span>JP</span>
+        <span>Work · About · Contact</span>
+      </div>
+      <div>
+        <div style="font-size:11px;letter-spacing:2px;font-family:ui-monospace,Menlo,monospace;opacity:0.55;margin-bottom:16px;">— Portfolio · 2026</div>
+        <div style="font-size:54px;font-weight:400;line-height:1.0;letter-spacing:-0.02em;font-style:italic;">Jaenil Parekh</div>
+        <div style="font-size:54px;font-weight:400;line-height:1.0;letter-spacing:-0.02em;margin-top:-4px;">builds for the web.</div>
+        <div style="margin-top:22px;font-size:15px;line-height:1.55;max-width:500px;font-family:ui-sans-serif,system-ui;opacity:0.65;">A computer science undergrad at IIT Jodhpur. He works on full-stack platforms, agentic LLM systems, and the kind of infrastructure that doesn't fall over at 3 AM.</div>
+      </div>
+      <div style="font-size:12px;font-family:ui-sans-serif,system-ui;opacity:0.55;">↓ Selected work</div>
+    </div>
+    <div class="card-body">
+      <h3>B · Serif &amp; editorial</h3>
+      <p>Off-white paper. Big italic display serif for the name. Third-person voice (like a magazine bio). Most "editorial" — feels like reading a profile.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="split-meta" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#0a0a0a;color:#fafafa;padding:40px 32px;min-height:360px;font-family:ui-sans-serif,system-ui;display:flex;flex-direction:column;justify-content:space-between;">
+      <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;opacity:0.5;">Jaenil Parekh · Portfolio</div>
+      <div style="display:grid;grid-template-columns:1.4fr 1fr;gap:24px;align-items:end;">
+        <div>
+          <div style="font-size:44px;font-weight:600;line-height:1.0;letter-spacing:-0.025em;">Full-stack engineer.<br/><span style="opacity:0.45;">Currently shipping at IIT Jodhpur.</span></div>
+        </div>
+        <div style="font-family:ui-monospace,Menlo,monospace;font-size:11px;line-height:1.9;opacity:0.7;border-left:1px solid rgba(255,255,255,0.15);padding-left:18px;">
+          <div><span style="opacity:0.5;">role</span>&nbsp;&nbsp;CSE Undergrad</div>
+          <div><span style="opacity:0.5;">year</span>&nbsp;&nbsp;2024–28</div>
+          <div><span style="opacity:0.5;">stack</span>&nbsp;React · Node · FastAPI</div>
+          <div><span style="opacity:0.5;">based</span>&nbsp;Jodhpur, IN</div>
+          <div><span style="opacity:0.5;">email</span>&nbsp;jaenil@…</div>
+          <div style="margin-top:8px;color:#7ee787;">● open to internships</div>
+        </div>
+      </div>
+      <div style="font-size:12px;opacity:0.5;">↓ Selected work · 03</div>
+    </div>
+    <div class="card-body">
+      <h3>C · Split with meta panel</h3>
+      <p>Headline on left, monospace "spec sheet" on the right (role, stack, location, availability). Reads as "engineer who treats themselves like a documented system." Distinctive without being loud.</p>
+    </div>
+  </div>
+</div>
+
+<p class="subtitle" style="margin-top:24px;">Don't worry about exact wording — that's all editable. Pick the layout/feel.</p>

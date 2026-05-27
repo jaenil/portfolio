@@ -1,0 +1,116 @@
+<h2>How should "Work" look on the home page?</h2>
+<p class="subtitle">Each project links to its own deep-dive page (/work/finsage, etc.). This is just the preview style on home.</p>
+
+<div class="cards">
+  <div class="card" data-choice="index-list" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#0a0a0a;color:#fafafa;padding:32px;min-height:360px;font-family:ui-sans-serif,system-ui;">
+      <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;opacity:0.5;margin-bottom:24px;">— Selected work</div>
+      <div style="display:flex;flex-direction:column;">
+        <div style="display:grid;grid-template-columns:30px 1fr 1fr 60px;gap:14px;align-items:center;padding:16px 0;border-top:1px solid rgba(255,255,255,0.12);font-size:13px;">
+          <div style="font-family:ui-monospace,Menlo,monospace;opacity:0.4;">01</div>
+          <div><div style="font-size:16px;font-weight:500;">FinSage</div><div style="opacity:0.5;font-size:11px;margin-top:3px;">Multi-agent trading assistant</div></div>
+          <div style="font-family:ui-monospace,Menlo,monospace;font-size:10px;opacity:0.55;">Python · LLM · FastAPI</div>
+          <div style="text-align:right;opacity:0.5;font-size:18px;">→</div>
+        </div>
+        <div style="display:grid;grid-template-columns:30px 1fr 1fr 60px;gap:14px;align-items:center;padding:16px 0;border-top:1px solid rgba(255,255,255,0.12);font-size:13px;">
+          <div style="font-family:ui-monospace,Menlo,monospace;opacity:0.4;">02</div>
+          <div><div style="font-size:16px;font-weight:500;">Ignus '26</div><div style="opacity:0.5;font-size:11px;margin-top:3px;">IITJ official fest site · 6k users</div></div>
+          <div style="font-family:ui-monospace,Menlo,monospace;font-size:10px;opacity:0.55;">React · Vite · Firebase</div>
+          <div style="text-align:right;opacity:0.5;font-size:18px;">→</div>
+        </div>
+        <div style="display:grid;grid-template-columns:30px 1fr 1fr 60px;gap:14px;align-items:center;padding:16px 0;border-top:1px solid rgba(255,255,255,0.12);font-size:13px;">
+          <div style="font-family:ui-monospace,Menlo,monospace;opacity:0.4;">03</div>
+          <div><div style="font-size:16px;font-weight:500;">OCEAS</div><div style="opacity:0.5;font-size:11px;margin-top:3px;">Proctored coding-exam platform</div></div>
+          <div style="font-family:ui-monospace,Menlo,monospace;font-size:10px;opacity:0.55;">TS · Postgres · Supabase</div>
+          <div style="text-align:right;opacity:0.5;font-size:18px;">→</div>
+        </div>
+        <div style="display:grid;grid-template-columns:30px 1fr 1fr 60px;gap:14px;align-items:center;padding:16px 0;border-top:1px solid rgba(255,255,255,0.12);border-bottom:1px solid rgba(255,255,255,0.12);font-size:13px;">
+          <div style="font-family:ui-monospace,Menlo,monospace;opacity:0.4;">04</div>
+          <div><div style="font-size:16px;font-weight:500;">IITJ Library System</div><div style="opacity:0.5;font-size:11px;margin-top:3px;">RBAC + Flutter app</div></div>
+          <div style="font-family:ui-monospace,Menlo,monospace;font-size:10px;opacity:0.55;">Node · Mongo · Flutter</div>
+          <div style="text-align:right;opacity:0.5;font-size:18px;">→</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>A · Index list</h3>
+      <p>Numbered rows. Title + short desc + tech tags + arrow. Most "editorial," scannable, scales to many projects. Hover reveals more.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="cards" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#0a0a0a;color:#fafafa;padding:32px;min-height:360px;font-family:ui-sans-serif,system-ui;">
+      <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;opacity:0.5;margin-bottom:20px;">— Selected work</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+        <div style="border:1px solid rgba(255,255,255,0.15);border-radius:6px;overflow:hidden;">
+          <div style="aspect-ratio:16/9;background:linear-gradient(135deg,#1a1a1a,#0a0a0a);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.25);font-size:10px;letter-spacing:2px;">SCREENSHOT</div>
+          <div style="padding:12px;">
+            <div style="font-size:13px;font-weight:500;">FinSage</div>
+            <div style="font-size:10px;opacity:0.5;margin-top:3px;">Multi-agent trading · BlackRock collab</div>
+          </div>
+        </div>
+        <div style="border:1px solid rgba(255,255,255,0.15);border-radius:6px;overflow:hidden;">
+          <div style="aspect-ratio:16/9;background:linear-gradient(135deg,#1a1a1a,#0a0a0a);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.25);font-size:10px;letter-spacing:2px;">SCREENSHOT</div>
+          <div style="padding:12px;">
+            <div style="font-size:13px;font-weight:500;">Ignus '26</div>
+            <div style="font-size:10px;opacity:0.5;margin-top:3px;">Official fest site · 6k users</div>
+          </div>
+        </div>
+        <div style="border:1px solid rgba(255,255,255,0.15);border-radius:6px;overflow:hidden;">
+          <div style="aspect-ratio:16/9;background:linear-gradient(135deg,#1a1a1a,#0a0a0a);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.25);font-size:10px;letter-spacing:2px;">SCREENSHOT</div>
+          <div style="padding:12px;">
+            <div style="font-size:13px;font-weight:500;">OCEAS</div>
+            <div style="font-size:10px;opacity:0.5;margin-top:3px;">Proctored exam platform</div>
+          </div>
+        </div>
+        <div style="border:1px solid rgba(255,255,255,0.15);border-radius:6px;overflow:hidden;">
+          <div style="aspect-ratio:16/9;background:linear-gradient(135deg,#1a1a1a,#0a0a0a);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.25);font-size:10px;letter-spacing:2px;">SCREENSHOT</div>
+          <div style="padding:12px;">
+            <div style="font-size:13px;font-weight:500;">IITJ Library</div>
+            <div style="font-size:10px;opacity:0.5;margin-top:3px;">RBAC backend + Flutter</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>B · 2-column cards</h3>
+      <p>Screenshot-led. Heavier visual presence — requires good project shots. Familiar portfolio pattern.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="featured" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#0a0a0a;color:#fafafa;padding:32px;min-height:360px;font-family:ui-sans-serif,system-ui;">
+      <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;opacity:0.5;margin-bottom:20px;">— Selected work</div>
+      <div style="margin-bottom:18px;">
+        <div style="aspect-ratio:21/9;background:linear-gradient(135deg,#1a1a2e,#0a0a0a);display:flex;align-items:flex-end;padding:16px;border-radius:6px;">
+          <div>
+            <div style="font-size:9px;font-family:ui-monospace,Menlo,monospace;opacity:0.5;letter-spacing:1.5px;text-transform:uppercase;">Featured · 2025</div>
+            <div style="font-size:20px;font-weight:600;margin-top:4px;">FinSage</div>
+            <div style="font-size:10px;opacity:0.6;margin-top:2px;">Multi-agent trading assistant · BlackRock industry collab</div>
+          </div>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;">
+        <div style="font-size:11px;border-top:1px solid rgba(255,255,255,0.15);padding-top:10px;">
+          <div style="font-family:ui-monospace,Menlo,monospace;opacity:0.4;font-size:9px;">02</div>
+          <div style="font-weight:500;margin-top:4px;">Ignus '26</div>
+          <div style="opacity:0.5;font-size:10px;">Fest site · 6k users</div>
+        </div>
+        <div style="font-size:11px;border-top:1px solid rgba(255,255,255,0.15);padding-top:10px;">
+          <div style="font-family:ui-monospace,Menlo,monospace;opacity:0.4;font-size:9px;">03</div>
+          <div style="font-weight:500;margin-top:4px;">OCEAS</div>
+          <div style="opacity:0.5;font-size:10px;">Exam platform</div>
+        </div>
+        <div style="font-size:11px;border-top:1px solid rgba(255,255,255,0.15);padding-top:10px;">
+          <div style="font-family:ui-monospace,Menlo,monospace;opacity:0.4;font-size:9px;">04</div>
+          <div style="font-weight:500;margin-top:4px;">IITJ Library</div>
+          <div style="opacity:0.5;font-size:10px;">RBAC + Flutter</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>C · One featured + index</h3>
+      <p>One big featured project (FinSage), then a compact list of the rest. Editorial-front-page energy — one headline, then the rest.</p>
+    </div>
+  </div>
+</div>
