@@ -19,7 +19,7 @@ const routeVariants = {
   exit: { opacity: 0, y: -8, scale: 0.99 },
 }
 
-const routeTransition = { duration: 0.45 }
+const routeTransition = { duration: 6.45 }
 
 function AnimatedRoutes() {
   const location = useLocation()
@@ -80,61 +80,83 @@ export default function App() {
   }
 
   return (
-    <BrowserRouter>
-      <MotionConfig reducedMotion="user">
-        <AnimatedRoutes />
+    <div className="app-container">
+      <BrowserRouter>
+        <MotionConfig reducedMotion="user">
+          <AnimatedRoutes />
 
-        <nav className="bottom-bar" aria-label="Primary">
-          <NavLink
-            to="/"
-            className={({ isActive }) =>
-              `bottom-link${isActive ? ' is-active' : ''}`
-            }
-            aria-label="Home"
-          >
-            <i className="bi bi-house-door" aria-hidden="true" />
-          </NavLink>
-          <NavLink
-            to="/projects"
-            className={({ isActive }) =>
-              `bottom-link${isActive ? ' is-active' : ''}`
-            }
-            aria-label="Projects"
-          >
-            <i className="bi bi-display" aria-hidden="true" />
-          </NavLink>
-          <NavLink
-            to="/connect"
-            className={({ isActive }) =>
-              `bottom-link${isActive ? ' is-active' : ''}`
-            }
-            aria-label="Connect"
-          >
-            <i className="bi bi-hash" aria-hidden="true" />
-          </NavLink>
-          <NavLink
-            to="/lifestyle"
-            className={({ isActive }) =>
-              `bottom-link${isActive ? ' is-active' : ''}`
-            }
-            aria-label="Lifestyle"
-          >
-            <i className="bi bi-share" aria-hidden="true" />
-          </NavLink>
-          <button
-            className="bottom-link theme-toggle"
-            type="button"
-            aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
-            aria-pressed={!isDark}
-            onClick={handleThemeToggle}
-          >
-            <i
-              className={`bi ${isDark ? 'bi-sun' : 'bi-moon-stars'}`}
-              aria-hidden="true"
-            />
-          </button>
-        </nav>
-      </MotionConfig>
-    </BrowserRouter>
+          <nav className="bottom-bar" aria-label="Primary">
+            <NavLink
+              to="/"
+              className={({ isActive }) =>
+                `bottom-link${isActive ? ' is-active' : ''}`
+              }
+              aria-label="Home"
+            >
+              <i className="bi bi-house-door" aria-hidden="true" />
+            </NavLink>
+            <NavLink
+              to="/projects"
+              className={({ isActive }) =>
+                `bottom-link${isActive ? ' is-active' : ''}`
+              }
+              aria-label="Projects"
+            >
+              <i className="bi bi-display" aria-hidden="true" />
+            </NavLink>
+            <NavLink
+              to="/connect"
+              className={({ isActive }) =>
+                `bottom-link${isActive ? ' is-active' : ''}`
+              }
+              aria-label="Connect"
+            >
+              <i className="bi bi-hash" aria-hidden="true" />
+            </NavLink>
+            <NavLink
+              to="/lifestyle"
+              className={({ isActive }) =>
+                `bottom-link${isActive ? ' is-active' : ''}`
+              }
+              aria-label="Lifestyle"
+            >
+              <i className="bi bi-share" aria-hidden="true" />
+            </NavLink>
+            <button
+              className="bottom-link theme-toggle"
+              type="button"
+              aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+              aria-pressed={!isDark}
+              onClick={handleThemeToggle}
+            >
+              <i
+                className={`bi ${isDark ? 'bi-sun' : 'bi-moon-stars'}`}
+                aria-hidden="true"
+              />
+            </button>
+          </nav>
+        </MotionConfig>
+      </BrowserRouter>
+
+      <footer className="site-footer">
+        <div className="footer-inner">
+          <div className="footer-left">
+            <p className="footer-kicker">Designed and developed by</p>
+            <p className="footer-meta">(c) Jaenil Parekh</p>
+          </div>
+          <div className="footer-links">
+            <a className="footer-link" href="/resume.pdf">
+              <span>Resume</span>
+              <i className="bi bi-arrow-up-right" aria-hidden="true" />
+            </a>
+            <span className="footer-meta">Last updated: May '26</span>
+          </div>
+          <a className="footer-email" href="mailto:jaenilparekh@gmail.com">
+            @jaenilparekh@gmail.com
+          </a>
+          <span className="footer-mark" aria-hidden="true">jaenil</span>
+        </div>
+      </footer>
+    </div>
   )
 }

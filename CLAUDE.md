@@ -181,21 +181,27 @@ First person. "I built …", not "Jaenil built …". English only.
 ## Workflow
 
 **Pair-programming, milestone by milestone.** For each milestone Claude
-proposes the design + code shape, writes a first pass, Jaenil reviews and
-modifies, iterate, then verification command, then move on to next.
+proposes the design + code shape, then Jaenil writes the code. Claude helps
+by explaining options, providing small targeted snippets, and reviewing
+changes. Only make direct code edits if Jaenil explicitly asks for them.
 
 Don't batch-implement multiple milestones in one go without check-in. Don't
 add features outside the current milestone. Surface tradeoffs explicitly.
 
+**Use this doc as the reference.** If there is a conflict between this file
+and a suggestion, ask before proceeding.
+
+**Explain suggestions.** When giving any code output or suggestions, always
+explain the logic and high-level rationale behind it.
+
 **Where Jaenil wants to be hands-on:** the **logic** — animation variants,
 GSAP timelines, hooks, routing, data flow, theme context if any, contact
 handling, content schemas. For logic: walk through the approach first,
-let Jaenil write or co-write key pieces, don't drop fully-finished logic
-without breaking it down.
+let Jaenil write or co-write key pieces.
 
 **Where Jaenil is less interested:** pure **UI / styling** work — Tailwind
-class soup, color tweaks, copy formatting, gallery layouts. Claude produces
-these in larger drops; Jaenil skims.
+class soup, color tweaks, copy formatting, gallery layouts. Claude can propose
+these and provide snippets; Jaenil implements.
 
 **Ask, don't assume.** When something is ambiguous (naming, library choice,
 API shape, scope boundary, env-var meaning, whether a file should be

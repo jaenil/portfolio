@@ -8,7 +8,30 @@ import seeYouAgainAudio from "../assets/songs/see_you_again.mp3"
 import sunflowerCover from "../assets/covers/sunflower.jpeg"
 import pumpedUpKicksCover from "../assets/covers/pumped-up-kicks.jpeg"
 import seeYouAgainCover from "../assets/covers/see-you-again.jpeg"
-
+// Near the top of Home.tsx (outside the component)
+const featuredProjects = [
+  {
+    title: "Oceas",
+    desc: "Open-source project on GitHub.",
+    href: "https://github.com/jaenil/oceas",
+    image:
+      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80",
+  },
+  {
+    title: "Agents",
+    desc: "Open-source project on GitHub.",
+    href: "https://github.com/jaenil/agents",
+    image:
+      "https://images.unsplash.com/photo-1518779578993-ec3579fee39f?auto=format&fit=crop&w=1200&q=80",
+  },
+  {
+    title: "Ignus Website",
+    desc: "Open-source project on GitHub.",
+    href: "https://github.com/AadityaSharma1001/Ignus-Pre-Reg",
+    image:
+      "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1200&q=80",
+  },
+] as const
 const playlist = [
   {
     id: "energy",
@@ -39,6 +62,50 @@ const playlist = [
 type TrackId = (typeof playlist)[number]["id"]
 
 export default function Home() {
+  const [activeSlide,setActiveSlide] = useState(0)
+  const trackRef = useRef<HTMLDivElement | null>(null)
+  const sliderRef = useRef<HTMLDivElement | null>(null)
+  const slideCount = featuredProjects.length
+
+  const scrollToSlide = (index: number,behavior:ScrollBehavior = "smooth") => {
+    const track = trackRef.current
+    if (!track) return
+    const width = track.clientWidth
+    track.scrollTo({
+      left: index * width,
+      behavior,
+    })
+  }
+  useEffect(() => {
+    if(slideCount<2) return
+    scrollToSlide(activeSlide)
+  },[activeSlide,slideCount])
+  useEffect(() => {
+  const slider = sliderRef.current
+  if (!slider || slideCount < 2) return
+
+  let paused = false
+  const onEnter = () => {
+    paused = true
+  }
+  const onLeave = () => {
+    paused = false
+  }
+
+  slider.addEventListener("mouseenter", onEnter)
+  slider.addEventListener("mouseleave", onLeave)
+
+  const id = window.setInterval(() => {
+    if (paused) return
+    setActiveSlide((prev) => (prev + 1) % slideCount)
+  }, 4500)
+
+  return () => {
+    window.clearInterval(id)
+    slider.removeEventListener("mouseenter", onEnter)
+    slider.removeEventListener("mouseleave", onLeave)
+  }
+}, [slideCount])
   const [codeforcesRating, setCodeforcesRating] = useState("—")
   const codeforcesHandle = "jp_1"
   const [activeTrackId, setActiveTrackId] = useState<TrackId>(playlist[0].id)
@@ -155,7 +222,7 @@ export default function Home() {
 
             <div className="about-name">
               I'm <strong>Jaenil</strong>
-              <span className="about-code">404</span>
+              <span className="about-code"></span>
             </div>
             <div className="about-role">Developer • Student</div>
 
@@ -200,101 +267,51 @@ export default function Home() {
 
         <div className="portfolio-panel">
           <h1 className="portfolio-title">Portfolio</h1>
-
-          <div className="featured-row">
-            <div className="featured-slider">
-              <div className="featured-track">
-                <article className="featured-slide is-active">
-                  <a
-                    className="featured-link"
-                    href="https://github.com/jaenil/oceas"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
+          <div className="featured-slider" ref={sliderRef}>
+            <div className="featured-track" ref={trackRef}>
+              {featuredProjects.map((project) => (
+                <article key={project.title} className="featured-slide">
+                  <a className="featured-link" href={project.href} target="_blank" rel="noreferrer">
                     <div
                       className="featured-image"
-                      style={{
-                        backgroundImage:
-                          "url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80')",
-                      }}
+                      style={{ backgroundImage: `url('${project.image}')` }}
                     >
                       <div className="featured-caption">
-                        <div className="featured-title">Oceas</div>
-                        <div className="featured-desc">
-                          Open-source project on GitHub.
-                        </div>
+                        <div className="featured-title">{project.title}</div>
+                        <div className="featured-desc">{project.desc}</div>
                       </div>
                     </div>
                   </a>
                 </article>
-                <article className="featured-slide">
-                  <a
-                    className="featured-link"
-                    href="https://github.com/jaenil/agents"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    <div
-                      className="featured-image"
-                      style={{
-                        backgroundImage:
-                          "url('https://images.unsplash.com/photo-1518779578993-ec3579fee39f?auto=format&fit=crop&w=1200&q=80')",
-                      }}
-                    >
-                      <div className="featured-caption">
-                        <div className="featured-title">Agents</div>
-                        <div className="featured-desc">
-                          Open-source project on GitHub.
-                        </div>
-                      </div>
-                    </div>
-                  </a>
-                </article>
-                <article className="featured-slide">
-                  <a
-                    className="featured-link"
-                    href="https://github.com/AadityaSharma1001/Ignus-Pre-Reg"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    <div
-                      className="featured-image"
-                      style={{
-                        backgroundImage:
-                          "url('https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1200&q=80')",
-                      }}
-                    >
-                      <div className="featured-caption">
-                        <div className="featured-title">Ignus Pre-Reg</div>
-                        <div className="featured-desc">
-                          Open-source project on GitHub.
-                        </div>
-                      </div>
-                    </div>
-                  </a>
-                </article>
-              </div>
+              ))}
+            </div>
 
-              <button
-                className="slider-arrow slider-arrow-left"
-                type="button"
-                aria-label="Previous slide"
-              >
-                <i className="bi bi-chevron-left" aria-hidden="true" />
-              </button>
-              <button
-                className="slider-arrow slider-arrow-right"
-                type="button"
-                aria-label="Next slide"
-              >
-                <i className="bi bi-chevron-right" aria-hidden="true" />
-              </button>
+            <button
+              className="slider-arrow slider-arrow-left"
+              type="button"
+              aria-label="Previous slide"
+              onClick={() =>
+                setActiveSlide((prev) => (prev - 1 + slideCount) % slideCount)
+              }
+            >
+              <i className="bi bi-chevron-left" aria-hidden="true" />
+            </button>
+            <button
+              className="slider-arrow slider-arrow-right"
+              type="button"
+              aria-label="Next slide"
+              onClick={() => setActiveSlide((prev) => (prev + 1) % slideCount)}
+            >
+              <i className="bi bi-chevron-right" aria-hidden="true" />
+            </button>
 
-              <div className="slider-dots" aria-hidden="true">
-                <span className="slider-dot is-active" />
-                <span className="slider-dot" />
-                <span className="slider-dot" />
-              </div>
+            <div className="slider-dots" aria-hidden="true">
+              {featuredProjects.map((_, index) => (
+                <span
+                  key={index}
+                  className={`slider-dot${index === activeSlide ? " is-active" : ""}`}
+                />
+              ))}
             </div>
           </div>
 
@@ -351,6 +368,45 @@ export default function Home() {
               <div className="stat-caption">@{codeforcesHandle}</div>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="selected-works">
+        <header className="selected-works-header">
+          <div className="selected-works-heading">
+            <h2 className="selected-works-title">Selected Works</h2>
+            <p className="selected-works-subtitle">
+              A collection of projects showcasing my exploration in design and
+              development.
+            </p>
+          </div>
+          <a className="selected-works-action" href="/projects">
+            <span>View All Projects</span>
+            <i className="bi bi-arrow-right" aria-hidden="true" />
+          </a>
+        </header>
+
+        <div className="selected-works-grid">
+          {featuredProjects.map((project) => (
+            <article key={project.title} className="work-card">
+              <a
+                href={project.href}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={project.title}
+              >
+                <div
+                  className="work-thumb"
+                  style={{ backgroundImage: `url('${project.image}')` }}
+                >
+                  <div className="work-caption">
+                    <div className="work-title">{project.title}</div>
+                    <div className="work-meta">{project.desc}</div>
+                  </div>
+                </div>
+              </a>
+            </article>
+          ))}
         </div>
       </section>
     </motion.main>
