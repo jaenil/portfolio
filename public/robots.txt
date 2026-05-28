@@ -1,3 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://vgil.fr/sitemap.xml
