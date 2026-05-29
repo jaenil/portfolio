@@ -670,6 +670,7 @@ a {
 
 .projects-preview-cta {
   align-self: start;
+  justify-self: start;
   display: inline-flex;
   gap: 8px;
   align-items: center;
