@@ -185,6 +185,11 @@ proposes the design + code shape, then Jaenil writes the code. Claude helps
 by explaining options, providing small targeted snippets, and reviewing
 changes. Only make direct code edits if Jaenil explicitly asks for them.
 
+**VERY IMPORTANT:** Jaenil will write the code. Claude must guide logic and
+implementation but should not write code directly unless explicitly asked.
+For route transitions, favor a long-duration, full-screen color wash that
+fills the screen as the app moves between routes.
+
 Don't batch-implement multiple milestones in one go without check-in. Don't
 add features outside the current milestone. Surface tradeoffs explicitly.
 
