@@ -217,7 +217,7 @@ export default function App() {
             <p className="footer-meta">(c) Jaenil Parekh</p>
           </div>
           <div className="footer-links">
-            <a className="footer-link" href="/resume.pdf">
+            <a className="footer-link" href="../public/resume.pdf" target="_blank">
               <span>Resume</span>
               <i className="bi bi-arrow-up-right" aria-hidden="true" />
             </a>

@@ -2,31 +2,50 @@ import { useState } from "react"
 
 const projects = [
   {
-    id: "agents",
-    title: "Agents",
+    id: "finsage",
+    title: "FinSage",
     kind: "Project",
-    description: "Open-source project on GitHub.",
-    stack: ["NodeJS", "RabbitMQ", "React", "Postgres"],
+    description:
+      "Multi-agent trading assistant combining technical, sentiment, fundamentals, risk, and portfolio reasoning into one explainable pipeline. Built the React + FastAPI app with real-time charts, a markdown analyst chat UI, resilient LLM routing, and Dockerized deployment.",
+    stack: ["Python", "LLM Agents", "React", "FastAPI", "Docker"],
     href: "https://github.com/jaenil/agents",
     cover:
-      "https://images.unsplash.com/photo-1518779578993-ec3579fee39f?auto=format&fit=crop&w=1400&q=80",
+      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1400&q=80",
   },
   {
     id: "ignus-pre-reg",
-    title: "Ignus Pre-Reg",
-    kind: "Project",
-    description: "Open-source project on GitHub.",
-    stack: ["NodeJS", "RabbitMQ", "React", "Postgres"],
+    title: "Ignus '26 Official Website",
+    kind: "Website",
+    description:
+      "Built IIT Jodhpur's official Ignus '26 website with a responsive, production-ready React + Vite + Tailwind frontend focused on SEO, accessibility, and cross-device performance. Delivered auth, protected routes, Google OAuth, event registration, team flows, passes, schedules, and dynamic profiles through REST APIs, scaled to 6,000+ peak users with 99.99% uptime.",
+    stack: [
+      "React",
+      "Vite",
+      "Tailwind CSS",
+      "Firebase",
+      "JavaScript",
+      "REST APIs",
+    ],
     href: "https://github.com/AadityaSharma1001/Ignus-Pre-Reg/",
     cover:
       "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1400&q=80",
   },
   {
     id: "oceas",
-    title: "Oceas",
-    kind: "Project",
-    description: "Open-source project on GitHub.",
-    stack: ["NodeJS", "RabbitMQ", "React", "Postgres"],
+    title: "OCEAS",
+    kind: "Course Project",
+    description:
+      "Built a proctored online coding exam platform with role-based access (Admin, Instructor, Student), multi-language execution via JDoodle, and client-side face detection using MediaPipe Tasks Vision with exam-lock enforcement. Architected an npm workspaces monorepo (React 18 + Vite frontend, Express + TypeScript backend), Supabase JWT auth (iitj.ac.in domain), SSE grading streams, CodeMirror 6, and Render deploys with automated SQL migrations.",
+    stack: [
+      "React",
+      "TypeScript",
+      "Vite",
+      "Express",
+      "PostgreSQL",
+      "Supabase",
+      "Node.js",
+      "MediaPipe",
+    ],
     href: "https://github.com/jaenil/oceas",
     cover:
       "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1400&q=80",
@@ -50,48 +69,6 @@ const projects = [
     href: "https://github.com/jaenil/CSL2020-project",
     cover:
       "https://images.unsplash.com/photo-1526378722484-bd91ca387e72?auto=format&fit=crop&w=1400&q=80",
-  },
-  {
-    id: "admin-portal",
-    title: "Admin Portal",
-    kind: "Project",
-    description: "Open-source project on GitHub.",
-    stack: ["NodeJS", "RabbitMQ", "React", "Postgres"],
-    href: "https://github.com/AdityaPandey2006/AdminPortal",
-    cover:
-      "https://images.unsplash.com/photo-1487017159836-4e23ece2e4cf?auto=format&fit=crop&w=1400&q=80",
-  },
-  {
-    id: "codifyr",
-    title: "Codifyr",
-    kind: "Project",
-    description: "Open-source project on GitHub.",
-    stack: ["NodeJS", "RabbitMQ", "React", "Postgres"],
-    href: "https://github.com/AdityaPandey2006/codifyr",
-    cover:
-      "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1400&q=80",
-  },
-  {
-    id: "koha-backend",
-    title: "Koha Backend",
-    kind: "Project",
-    description: "Open-source project on GitHub.",
-    stack: ["NodeJS", "RabbitMQ", "React", "Postgres"],
-    href: "https://github.com/AdityaPandey2006/kohaBackend",
-    cover:
-      "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1400&q=80",
-  },
-  {
-    id: "image-stitching",
-    title: "Image Stitching",
-    kind: "Project",
-    description: "Open-source project on GitHub.",
-    stack: ["NodeJS", "RabbitMQ", "React", "Postgres"],
-  
-    href: "https://github.com/jaenil/image-stitching",
-    cover:
-      "https://images.unsplash.com/photo-1526666923127-b2970f64b422?auto=format&fit=crop&w=1400&q=80",
-
   },
   {
     id: "cipherkins-team2",

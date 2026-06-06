@@ -1,5 +1,12 @@
 
 import ActivitySlideshow from "../components/ActivitySlideshow.js"
+
+const myImages = Object.values(
+  import.meta.glob("../assets/about_me/*.{jpg,jpeg,png,webp}", {
+    eager: true,
+    as: "url",
+  })
+)
 const basketballImages = Object.values(
   import.meta.glob("../assets/basketball/*.{jpg,jpeg,png,webp}", {
     eager: true,
@@ -16,13 +23,6 @@ const trekkingImages = Object.values(
 
 const munImages = Object.values(
   import.meta.glob("../assets/MUN/*.{jpg,jpeg,png,webp}", {
-    eager: true,
-    as: "url",
-  })
-)
-
-const myImages = Object.values(
-  import.meta.glob("../assets/about_me/*.{jpg,jpeg,png,webp}", {
     eager: true,
     as: "url",
   })
@@ -93,7 +93,7 @@ export default function Lifestyle() {
               }`}
             >
               <div className="w-full md:w-1/2">
-                <div className="aspect-[4/3] overflow-hidden rounded-2xl bg-zinc-900">
+                <div className="aspect-4/3 overflow-hidden rounded-2xl bg-zinc-900">
                   <ActivitySlideshow
                     images={item.images}
                     alt={`${item.title} activity`}
