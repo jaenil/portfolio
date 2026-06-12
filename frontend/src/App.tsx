@@ -1,5 +1,8 @@
 import { useEffect, useRef, useState } from 'react'
 import type { CSSProperties, MouseEvent } from 'react'
+
+declare const __LAST_UPDATED__: string
+
 import {
   BrowserRouter,
   NavLink,
@@ -217,11 +220,11 @@ export default function App() {
             <p className="footer-meta">(c) Jaenil Parekh</p>
           </div>
           <div className="footer-links">
+            <span className="footer-meta">Last updated: {__LAST_UPDATED__}</span>
             <a className="footer-link" href="../public/resume.pdf" target="_blank">
               <span>Resume</span>
               <i className="bi bi-arrow-up-right" aria-hidden="true" />
             </a>
-            <span className="footer-meta">Last updated: May '26</span>
           </div>
           <a className="footer-email" href="mailto:jaenilparekh@gmail.com">
             @jaenilparekh@gmail.com
