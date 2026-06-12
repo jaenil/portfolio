@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useMemo, useRef, useState } from "react"
 
 import avatarPortrait from "../assets/pic.jpg"
 import sunflowerAudio from "../assets/songs/sunflower.mp3"
@@ -36,6 +36,186 @@ const playlist = [
 ] as const
 
 type TrackId = (typeof playlist)[number]["id"]
+
+// ─── GitHub Contributions Heatmap ────────────────────────────────────────────
+
+type ContribDay = { date: string; count: number }
+
+const CELL = 11
+const GAP = 3
+const WEEKS = 52
+const DAYS = 7
+
+// Blue palette: level 0 → 4
+const LEVELS = [
+  "rgba(30, 32, 44, 0.9)",   // 0 — empty
+  "rgba(42, 62, 130, 0.85)", // 1 — low
+  "rgba(55, 90, 185, 0.88)", // 2 — medium-low
+  "rgba(70, 122, 230, 0.92)", // 3 — medium-high
+  "rgba(99, 163, 255, 1)",   // 4 — high
+]
+
+const MONTHS = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]
+
+function getLevel(count: number, max: number): number {
+  if (count === 0) return 0
+  if (max === 0) return 0
+  const ratio = count / max
+  if (ratio < 0.15) return 1
+  if (ratio < 0.40) return 2
+  if (ratio < 0.70) return 3
+  return 4
+}
+
+function GithubContributions({ username }: { username: string }) {
+  const [days, setDays] = useState<ContribDay[]>([])
+  const [total, setTotal] = useState(0)
+  const [status, setStatus] = useState<"loading" | "ok" | "error">("loading")
+
+  useEffect(() => {
+    const controller = new AbortController()
+    const url = `https://github-contributions-api.jogruber.de/v4/${username}?y=last`
+
+    fetch(url, { signal: controller.signal })
+      .then((r) => {
+        if (!r.ok) throw new Error("fetch failed")
+        return r.json()
+      })
+      .then((data) => {
+        const contributions: ContribDay[] = data.contributions ?? []
+        setDays(contributions)
+        setTotal(data.total?.lastYear ?? contributions.reduce((s: number, d: ContribDay) => s + d.count, 0))
+        setStatus("ok")
+      })
+      .catch((e) => {
+        if (e instanceof DOMException && e.name === "AbortError") return
+        setStatus("error")
+      })
+
+    return () => controller.abort()
+  }, [username])
+
+  // Build a 52-week grid (Sun → Sat columns)
+  const grid = useMemo(() => {
+    if (!days.length) return []
+    // take last 364 days (52 × 7)
+    const slice = days.slice(-364)
+    const weeks: ContribDay[][] = []
+    for (let w = 0; w < WEEKS; w++) {
+      weeks.push(slice.slice(w * DAYS, w * DAYS + DAYS))
+    }
+    return weeks
+  }, [days])
+
+  const max = useMemo(
+    () => Math.max(...days.map((d) => d.count), 1),
+    [days]
+  )
+
+  // Compute month label positions
+  const monthLabels = useMemo(() => {
+    if (!grid.length) return []
+    const labels: { label: string; x: number }[] = []
+    let lastMonth = -1
+    grid.forEach((week, wi) => {
+      if (!week[0]) return
+      const m = new Date(week[0].date).getMonth()
+      if (m !== lastMonth) {
+        labels.push({ label: MONTHS[m], x: wi * (CELL + GAP) })
+        lastMonth = m
+      }
+    })
+    return labels
+  }, [grid])
+
+  const svgWidth = WEEKS * (CELL + GAP) - GAP
+  const svgHeight = DAYS * (CELL + GAP) - GAP
+  const MONTH_ROW = 18
+  const totalHeight = MONTH_ROW + svgHeight
+
+  return (
+    <div className="gh-contrib-card" aria-label="GitHub contribution heatmap">
+      <div className="gh-contrib-header">
+        <span className="gh-contrib-title">
+          <i className="bi bi-github" aria-hidden="true" />
+          GitHub Contributions
+        </span>
+        {status === "ok" && (
+          <span className="gh-contrib-total">
+            {total.toLocaleString()} this year
+          </span>
+        )}
+      </div>
+
+      {status === "loading" && (
+        <div className="gh-contrib-skeleton" aria-busy="true">
+          <div className="gh-contrib-pulse" />
+        </div>
+      )}
+
+      {status === "error" && (
+        <div className="gh-contrib-empty">
+          Couldn't load contributions
+        </div>
+      )}
+
+      {status === "ok" && (
+        <>
+          <svg
+            className="gh-contrib-svg"
+            viewBox={`0 0 ${svgWidth} ${totalHeight}`}
+            aria-hidden="true"
+            style={{ width: "100%", height: "auto" }}
+          >
+            {/* Month labels */}
+            {monthLabels.map(({ label, x }) => (
+              <text
+                key={`${label}-${x}`}
+                x={x}
+                y={MONTH_ROW - 5}
+                fontSize="8"
+                fill="rgba(244,244,245,0.45)"
+                fontFamily="var(--font-sans, system-ui)"
+              >
+                {label}
+              </text>
+            ))}
+
+            {/* Cells */}
+            {grid.map((week, wi) =>
+              week.map((day, di) => (
+                <rect
+                  key={day.date}
+                  x={wi * (CELL + GAP)}
+                  y={MONTH_ROW + di * (CELL + GAP)}
+                  width={CELL}
+                  height={CELL}
+                  rx={2}
+                  ry={2}
+                  fill={LEVELS[getLevel(day.count, max)]}
+                >
+                  <title>{`${day.date}: ${day.count} contribution${day.count !== 1 ? "s" : ""}`}</title>
+                </rect>
+              ))
+            )}
+          </svg>
+
+          <div className="gh-contrib-legend" aria-label="Contribution scale">
+            <span className="gh-contrib-legend-label">Less</span>
+            {LEVELS.map((color, i) => (
+              <span
+                key={i}
+                className="gh-contrib-legend-cell"
+                style={{ background: color }}
+              />
+            ))}
+            <span className="gh-contrib-legend-label">More</span>
+          </div>
+        </>
+      )}
+    </div>
+  )
+}
 
 export default function Home() {
   const [codeforcesRating, setCodeforcesRating] = useState("—")
@@ -319,6 +499,8 @@ useEffect(() => {
 </div>
             </div>
           </div>
+
+          <GithubContributions username="jaenil" />
 
           <div className="aux-row">
             <div className="now-playing-card">

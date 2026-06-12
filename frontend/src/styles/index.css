@@ -874,6 +874,103 @@ a {
   color: var(--color-muted);
 }
 
+/* ── GitHub Contributions ───────────────────────────────────────── */
+
+.gh-contrib-card {
+  display: grid;
+  gap: 12px;
+  padding: 14px 16px 12px;
+  border-radius: 18px;
+  border: 1px solid var(--border-soft);
+  background: var(--panel-card-strong);
+  box-shadow: var(--shadow-card);
+}
+
+.gh-contrib-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.gh-contrib-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.gh-contrib-title .bi {
+  font-size: 15px;
+  color: var(--text-weak);
+}
+
+.gh-contrib-total {
+  font-size: 12px;
+  color: var(--text-weak);
+  font-variant-numeric: tabular-nums;
+}
+
+.gh-contrib-svg {
+  display: block;
+  overflow: visible;
+}
+
+.gh-contrib-skeleton {
+  height: 90px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: rgba(30, 32, 44, 0.6);
+}
+
+.gh-contrib-pulse {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(50, 55, 80, 0) 0%,
+    rgba(70, 80, 130, 0.35) 50%,
+    rgba(50, 55, 80, 0) 100%
+  );
+  background-size: 200% 100%;
+  animation: gh-pulse 1.6s ease infinite;
+}
+
+@keyframes gh-pulse {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.gh-contrib-empty {
+  font-size: 12px;
+  color: var(--text-weak);
+  text-align: center;
+  padding: 20px 0;
+}
+
+.gh-contrib-legend {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.gh-contrib-legend-label {
+  font-size: 10px;
+  color: var(--text-weak);
+  letter-spacing: 0.04em;
+}
+
+.gh-contrib-legend-cell {
+  width: 11px;
+  height: 11px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+/* ────────────────────────────────────────────────────────────────── */
+
 .aux-row {
   display: grid;
   grid-template-columns: minmax(260px, 1fr) minmax(200px, 0.7fr);
