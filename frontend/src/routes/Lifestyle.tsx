@@ -4,29 +4,34 @@ import ActivitySlideshow from "../components/ActivitySlideshow.js"
 const myImages = Object.values(
   import.meta.glob("../assets/about_me/*.{jpg,jpeg,png,webp}", {
     eager: true,
-    as: "url",
+    query: "?url",
+    import: "default",
   })
-)
+) as string[]
+
 const basketballImages = Object.values(
   import.meta.glob("../assets/basketball/*.{jpg,jpeg,png,webp}", {
     eager: true,
-    as: "url",
+    query: "?url",
+    import: "default",
   })
-)
+) as string[]
 
 const trekkingImages = Object.values(
   import.meta.glob("../assets/trekking/*.{jpg,jpeg,png,webp}", {
     eager: true,
-    as: "url",
+    query: "?url",
+    import: "default",
   })
-)
+) as string[]
 
 const munImages = Object.values(
   import.meta.glob("../assets/MUN/*.{jpg,jpeg,png,webp}", {
     eager: true,
-    as: "url",
+    query: "?url",
+    import: "default",
   })
-)
+) as string[]
 
 export default function Lifestyle() {
   const activities = [
