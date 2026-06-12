@@ -1,10 +1,9 @@
-
 import ActivitySlideshow from "../components/ActivitySlideshow.js"
 
 const myImages = Object.values(
   import.meta.glob("../assets/about_me/*.{jpg,jpeg,png,webp}", {
     eager: true,
-    query: "?url",
+    query: "?format=webp&quality=80&w=1200",
     import: "default",
   })
 ) as string[]
@@ -12,7 +11,7 @@ const myImages = Object.values(
 const basketballImages = Object.values(
   import.meta.glob("../assets/basketball/*.{jpg,jpeg,png,webp}", {
     eager: true,
-    query: "?url",
+    query: "?format=webp&quality=80&w=1200",
     import: "default",
   })
 ) as string[]
@@ -20,7 +19,7 @@ const basketballImages = Object.values(
 const trekkingImages = Object.values(
   import.meta.glob("../assets/trekking/*.{jpg,jpeg,png,webp}", {
     eager: true,
-    query: "?url",
+    query: "?format=webp&quality=80&w=1200",
     import: "default",
   })
 ) as string[]
@@ -28,7 +27,7 @@ const trekkingImages = Object.values(
 const munImages = Object.values(
   import.meta.glob("../assets/MUN/*.{jpg,jpeg,png,webp}", {
     eager: true,
-    query: "?url",
+    query: "?format=webp&quality=80&w=1200",
     import: "default",
   })
 ) as string[]
@@ -67,7 +66,7 @@ export default function Lifestyle() {
       images: munImages,
       reverse: false,
     },
-    
+
   ]
 
   return (
@@ -93,9 +92,8 @@ export default function Lifestyle() {
             className="mx-auto w-full max-w-5xl rounded-[28px] p-6 md:p-8"
           >
             <div
-              className={`flex flex-col gap-6 md:items-center md:gap-10 ${
-                item.reverse ? "md:flex-row-reverse" : "md:flex-row"
-              }`}
+              className={`flex flex-col gap-6 md:items-center md:gap-10 ${item.reverse ? "md:flex-row-reverse" : "md:flex-row"
+                }`}
             >
               <div className="w-full md:w-1/2">
                 <div className="aspect-4/3 overflow-hidden rounded-2xl bg-zinc-900">
