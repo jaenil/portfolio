@@ -38,7 +38,7 @@ export default function Lifestyle() {
       title: "About me",
       kicker: "",
       copy:
-        "Consistency over speed. I train for distance and the mental grit that follows.",
+        "Constantly looking for exciting things to do and exploring new things in life.Trying to build an all round personality and develop new skills. ",
       images: myImages,
       reverse: true,
     },
@@ -46,7 +46,7 @@ export default function Lifestyle() {
       title: "Basketball",
       kicker: "ON COURT",
       copy:
-        "Fast reads, sharp cuts, and team rhythm. I play pick-up and inter-hostel games whenever I can.",
+        " I play for IIT Jodhpur's college basketball team and have represented my institute at Inter IIT 2025, Varchas 2025, Inter IIT 2026, Varchas 2026 and MST 2026.",
       images: basketballImages,
       reverse: false,
     },
@@ -54,7 +54,7 @@ export default function Lifestyle() {
       title: "Trekking",
       kicker: "OUTDOORS",
       copy:
-        "Long trails reset my head. Early starts, slow climbs, and the quiet that comes with distance.",
+        "I am an avid trekker and love exploring the mountains.",
       images: trekkingImages,
       reverse: true,
     },
@@ -62,7 +62,7 @@ export default function Lifestyle() {
       title: "MUN",
       kicker: "DIPLOMACY",
       copy:
-        "Research, debate, and clarity under pressure. It is where I sharpen how I think and speak.",
+        "I have won best delegate awards in multiple MUN conferences. Love a healthy debate.",
       images: munImages,
       reverse: false,
     },
@@ -79,10 +79,7 @@ export default function Lifestyle() {
         <h1 className="mt-4 text-4xl font-semibold text-zinc-100 md:text-5xl">
           Extracurriculars
         </h1>
-        <p className="mt-3 max-w-2xl text-base leading-relaxed text-zinc-400">
-          Outside the lab, I chase rhythm, distance, and debate. These are the
-          spaces that keep me sharp.
-        </p>
+
       </div>
 
       <section className="mt-12 flex flex-col gap-12">

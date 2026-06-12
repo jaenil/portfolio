@@ -113,13 +113,12 @@ function AppShell({ isDark, onThemeToggle }: AppShellProps) {
   return (
     <>
       <div
-        className={`page-transition${
-          phase === 'leaving'
-            ? ' is-leaving'
-            : phase === 'entering'
-              ? ' is-entering'
-              : ''
-        }`}
+        className={`page-transition${phase === 'leaving'
+          ? ' is-leaving'
+          : phase === 'entering'
+            ? ' is-entering'
+            : ''
+          }`}
         style={overlayStyle}
         aria-hidden="true"
       >
@@ -177,18 +176,6 @@ function AppShell({ isDark, onThemeToggle }: AppShellProps) {
         >
           <i className="bi bi-share" aria-hidden="true" />
         </NavLink>
-        <button
-          className="bottom-link theme-toggle"
-          type="button"
-          aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
-          aria-pressed={!isDark}
-          onClick={onThemeToggle}
-        >
-          <i
-            className={`bi ${isDark ? 'bi-sun' : 'bi-moon-stars'}`}
-            aria-hidden="true"
-          />
-        </button>
       </nav>
     </>
   )
