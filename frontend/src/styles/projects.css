@@ -1,0 +1,193 @@
+/* ═══════════════════════════════════════════════════════════════════
+   projects.css — Styles for the Projects route (routes/Projects.tsx)
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* ── Page Root ─────────────────────────────────────────────────────── */
+
+.projects-page {
+  display: grid;
+  gap: 28px;
+}
+
+/* ── Hero ──────────────────────────────────────────────────────────── */
+
+.projects-hero {
+  text-align: center;
+  display: grid;
+  gap: 8px;
+  padding-top: 16px;
+}
+
+.projects-title {
+  margin: 0;
+  font-size: clamp(40px, 6vw, 72px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.projects-subtitle {
+  margin: 0;
+  color: var(--text-weak);
+  font-size: 14px;
+}
+
+/* ── Two-Column Layout ─────────────────────────────────────────────── */
+
+.projects-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+  gap: 22px;
+  align-items: start;
+}
+
+/* ── Preview Panel ─────────────────────────────────────────────────── */
+
+.projects-preview {
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border-soft);
+  background: var(--panel-card);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: auto auto;
+}
+
+.projects-preview-media {
+  aspect-ratio: 16 / 9;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.projects-preview-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(9, 9, 11, 0.2) 0%,
+    rgba(9, 9, 11, 0.75) 100%
+  );
+  z-index: 0;
+}
+
+.projects-preview-stack {
+  position: absolute;
+  left: 16px;
+  bottom: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 1;
+}
+
+.projects-preview-chip {
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(12, 14, 22, 0.75);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(244, 244, 245, 0.9);
+  backdrop-filter: blur(6px);
+}
+
+.projects-preview:hover .projects-preview-stack {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.projects-preview-body {
+  padding: 18px 20px 22px;
+  display: grid;
+  gap: 10px;
+}
+
+.projects-preview-title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.projects-preview-desc {
+  margin: 0;
+  font-size: 13px;
+  color: var(--text-weak);
+  max-width: 520px;
+}
+
+.projects-preview-cta {
+  align-self: start;
+  justify-self: start;
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--border-soft);
+  background: var(--panel);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* ── Project List ──────────────────────────────────────────────────── */
+
+.projects-list {
+  display: grid;
+  gap: 10px;
+}
+
+.project-row {
+  display: grid;
+  grid-template-columns: auto auto 1fr auto;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  border: 1px solid var(--border-soft);
+  background: var(--panel-soft);
+  color: var(--color-text);
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.project-row.is-active,
+.project-row:hover {
+  border-color: var(--color-info-strong);
+  transform: translateY(-2px);
+}
+
+.project-row-number {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-weak);
+}
+
+.project-row-thumb {
+  width: 36px;
+  height: 36px;
+  border-radius: 9px;
+  object-fit: cover;
+}
+
+.project-row-meta {
+  display: grid;
+  gap: 4px;
+}
+
+.project-row-title {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.project-row-subtitle {
+  font-size: 11px;
+  color: var(--text-weak);
+}

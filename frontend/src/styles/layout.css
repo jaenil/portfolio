@@ -1,0 +1,66 @@
+/* ═══════════════════════════════════════════════════════════════════
+   layout.css — Global shells and fixed bottom nav bar (all routes)
+   ═══════════════════════════════════════════════════════════════════ */
+
+.page-shell {
+  width: min(1200px, 100%);
+  margin: 0 auto;
+  min-height: calc(100dvh - var(--bottom-bar-height) - var(--bottom-bar-offset));
+  padding: 40px 28px calc(var(--bottom-bar-height) + var(--bottom-bar-offset));
+}
+
+.route-shell {
+  min-height: 100%;
+}
+
+/* ── Bottom Navigation Bar ────────────────────────────────────────── */
+
+.bottom-bar {
+  position: fixed;
+  left: 50%;
+  bottom: var(--bottom-bar-offset);
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--panel);
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(14px);
+  z-index: 50;
+}
+
+.bottom-link {
+  position: relative;
+  width: 34px;
+  height: 34px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  border: none;
+  background: transparent;
+  color: var(--text-weak);
+  cursor: pointer;
+}
+
+.bottom-link i {
+  font-size: 18px;
+  line-height: 1;
+}
+
+.bottom-link.is-active {
+  background: var(--bottom-active-bg);
+  color: var(--bottom-active-color);
+}
+
+.bottom-link.is-active::after {
+  content: "";
+  position: absolute;
+  bottom: 4px;
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--bottom-active-color);
+}

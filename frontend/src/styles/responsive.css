@@ -1,0 +1,64 @@
+/* ═══════════════════════════════════════════════════════════════════
+   responsive.css — All media queries (breakpoint overrides)
+   Must be imported LAST so that responsive rules win specificity.
+   ═══════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 980px) {
+  /* ── Home layout ─────────────────────────────────────────────────── */
+  .home-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .about-shell {
+    padding-left: 0;
+  }
+
+  .side-rail {
+    display: none;
+  }
+
+  .about-card {
+    order: 2;
+  }
+
+  .featured-row {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-stack {
+    margin-left: 0;
+  }
+
+  .aux-row {
+    grid-template-columns: 1fr;
+  }
+
+  .selected-works-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* ── Projects layout ─────────────────────────────────────────────── */
+  .projects-layout {
+    grid-template-columns: 1fr;
+  }
+
+  /* ── Footer ──────────────────────────────────────────────────────── */
+  .site-footer {
+    margin-bottom: 140px;
+  }
+
+  .footer-inner {
+    padding: 24px 22px 44px;
+  }
+
+  .footer-mark {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    display: block;
+    text-align: center;
+    font-size: clamp(80px, 22vw, 180px);
+    opacity: 0.5;
+    margin-top: 12px;
+  }
+}

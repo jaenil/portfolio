@@ -14,7 +14,6 @@ import {
 
 import Home from './routes/Home.tsx'
 import Projects from './routes/Projects.tsx'
-import Connect from './routes/Connect.tsx'
 import Lifestyle from './routes/Lifestyle.tsx'
 import WorkDetail from './routes/Work.$slug.tsx'
 import NotFound from './routes/NotFound.tsx'
@@ -108,7 +107,6 @@ function AppShell() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/projects" element={<Projects />} />
-        <Route path="/connect" element={<Connect />} />
         <Route path="/lifestyle" element={<Lifestyle />} />
         <Route path="/work/:slug" element={<WorkDetail />} />
         <Route path="*" element={<NotFound />} />
@@ -135,16 +133,7 @@ function AppShell() {
         >
           <i className="bi bi-display" aria-hidden="true" />
         </NavLink>
-        <NavLink
-          to="/connect"
-          className={({ isActive }) =>
-            `bottom-link${isActive ? ' is-active' : ''}`
-          }
-          onClick={handleNav('/connect')}
-          aria-label="Connect"
-        >
-          <i className="bi bi-hash" aria-hidden="true" />
-        </NavLink>
+       
         <NavLink
           to="/lifestyle"
           className={({ isActive }) =>

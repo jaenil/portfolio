@@ -392,10 +392,10 @@ useEffect(() => {
           </div>
 
           <div className="side-rail">
-            <span>Linux</span>
-            <span>Networks</span>
-            <span>SystemDesign</span>
-            <span>Workflow</span>
+            <span>Full Stack</span>
+            <span>AI-ML</span>
+            <span>System Design</span>
+            <span>Architecture</span>
           </div>
 
           <article className="about-card">

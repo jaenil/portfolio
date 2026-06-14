@@ -1,0 +1,74 @@
+/* ═══════════════════════════════════════════════════════════════════
+   shared.css — Reusable components used across multiple routes
+   ═══════════════════════════════════════════════════════════════════ */
+
+.sparkle-icon {
+  width: 18px;
+  height: 18px;
+}
+
+.menu-button {
+  width: 46px;
+  height: 46px;
+  border-radius: 999px;
+  border: 1px solid var(--border-strong);
+  background: var(--panel-strong);
+  display: grid;
+  place-items: center;
+  box-shadow: var(--shadow-card);
+}
+
+.menu-button i {
+  font-size: 20px;
+  line-height: 1;
+}
+
+.pill-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  padding: 12px 18px;
+  background: var(--panel);
+  color: var(--color-text);
+  font-size: 14px;
+  letter-spacing: 0.04em;
+}
+
+.works-button {
+  padding: 8px 16px;
+}
+
+.social-list {
+  list-style: none;
+  display: flex;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+}
+
+.social-link {
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border);
+  background: var(--panel-card-soft);
+  font-size: 16px;
+  color: var(--color-text);
+}
+
+.social-link i {
+  line-height: 1;
+}
+
+.email-link {
+  display: inline-flex;
+  margin-top: 12px;
+  font-size: 14px;
+  color: var(--color-muted);
+}

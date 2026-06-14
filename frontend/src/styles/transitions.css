@@ -1,0 +1,91 @@
+/* ═══════════════════════════════════════════════════════════════════
+   transitions.css — Page-transition overlay (App.tsx / AppShell)
+   ═══════════════════════════════════════════════════════════════════ */
+
+.page-transition {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  overflow: hidden;
+  opacity: 0;
+  --pt-out: 760ms;
+  --pt-hold: 800ms;
+  --pt-in: 760ms;
+  --pt-stagger: 70ms;
+  --pt-ease: cubic-bezier(0.7, 0, 0.2, 1);
+  --pt-color-a: #040814;
+  --pt-color-b: #0a1a4a ;
+}
+
+.page-transition.is-leaving,
+.page-transition.is-entering {
+  opacity: 1;
+  pointer-events: auto;
+  cursor: wait;
+  touch-action: none;
+  overscroll-behavior: none;
+}
+
+.page-transition__panel {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 160vmax;
+  height: 160vmax;
+  transform-origin: center;
+  transform: translate3d(var(--pt-from-x), var(--pt-from-y), 0) rotate(45deg);
+  will-change: transform;
+}
+
+.page-transition__panel--tl {
+  --pt-from-x: -180%;
+  --pt-from-y: -180%;
+  background: var(--pt-color-a);
+}
+
+.page-transition__panel--br {
+  --pt-from-x: 180%;
+  --pt-from-y: 180%;
+  background: var(--pt-color-b);
+}
+
+.page-transition.is-leaving .page-transition__panel {
+  animation: pt-out var(--pt-out) var(--pt-ease) forwards;
+}
+
+.page-transition.is-leaving .page-transition__panel--br {
+  animation-delay: var(--pt-stagger);
+}
+
+.page-transition.is-entering .page-transition__panel {
+  animation: pt-in var(--pt-in) var(--pt-ease) forwards;
+}
+
+.page-transition.is-entering .page-transition__panel--tl {
+  animation-delay: var(--pt-stagger);
+}
+
+@keyframes pt-out {
+  from {
+    transform: translate3d(var(--pt-from-x), var(--pt-from-y), 0) rotate(45deg);
+  }
+  to {
+    transform: translate3d(-50%, -50%, 0) rotate(45deg);
+  }
+}
+
+@keyframes pt-in {
+  from {
+    transform: translate3d(-50%, -50%, 0) rotate(45deg);
+  }
+  to {
+    transform: translate3d(var(--pt-from-x), var(--pt-from-y), 0) rotate(45deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-transition {
+    display: none;
+  }
+}
