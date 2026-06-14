@@ -408,6 +408,7 @@ useEffect(() => {
                     className="social-link"
                     href="https://github.com/jaenil"
                     aria-label="GitHub"
+                    target="_blank"
                   >
                     <i className="bi bi-github" aria-hidden="true" />
                   </a>
@@ -417,6 +418,7 @@ useEffect(() => {
                     className="social-link"
                     href="https://www.linkedin.com/in/jaenil-parekh/"
                     aria-label="LinkedIn"
+                    target="_blank"
                   >
                     <i className="bi bi-linkedin" aria-hidden="true" />
                   </a>
@@ -424,6 +426,16 @@ useEffect(() => {
                 <li>
                   <a className="social-link" href="#" aria-label="Instagram">
                     <i className="bi bi-instagram" aria-hidden="true" />
+                  </a>
+                </li>
+                <li>
+                  <a
+                    className="social-link"
+                    href="https://discord.com/users/758287475445334027"
+                    aria-label="Discord"
+                    target="_blank"
+                  >
+                    <i className="bi bi-discord" aria-hidden="true" />
                   </a>
                 </li>
               </ul>

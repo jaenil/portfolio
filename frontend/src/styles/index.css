@@ -51,35 +51,6 @@
   --bottom-active-color: #9de5e0;
 }
 
-[data-theme="light"] {
-  color-scheme: light;
-  --color-bg: #f6f7f4;
-  --color-surface: #ffffff;
-  --color-elevated: #edf1ea;
-  --color-border: #d4dfd5;
-  --color-muted: #5a6a62;
-  --color-text: #1c2220;
-  --color-online: #1f8f6b;
-  --bg-accent-1: rgba(42, 111, 155, 0.14);
-  --bg-accent-2: rgba(31, 143, 107, 0.12);
-  --bg-accent-3: rgba(38, 50, 79, 0.16);
-  --panel-strong: rgba(255, 255, 255, 0.95);
-  --panel: rgba(255, 255, 255, 0.7);
-  --panel-soft: rgba(248, 250, 252, 0.92);
-  --panel-card: rgba(255, 255, 255, 0.88);
-  --panel-card-strong: rgba(248, 250, 252, 0.92);
-  --panel-card-soft: rgba(255, 255, 255, 0.8);
-  --panel-overlay: rgba(28, 34, 32, 0.08);
-  --border-strong: rgba(28, 34, 32, 0.2);
-  --border: rgba(28, 34, 32, 0.16);
-  --border-soft: rgba(28, 34, 32, 0.12);
-  --border-muted: rgba(28, 34, 32, 0.1);
-  --text-weak: rgba(28, 34, 32, 0.65);
-  --featured-bg: linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(237, 241, 234, 0.95));
-  --bottom-active-bg: rgba(28, 34, 32, 0.12);
-  --bottom-active-color: #2a6f9b;
-}
-
 * {
   box-sizing: border-box;
 }

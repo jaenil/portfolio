@@ -19,22 +19,6 @@ import Lifestyle from './routes/Lifestyle.tsx'
 import WorkDetail from './routes/Work.$slug.tsx'
 import NotFound from './routes/NotFound.tsx'
 
-type Theme = 'dark' | 'light'
-
-const themeStorageKey = 'theme-preference'
-const getInitialTheme = (): Theme => {
-  if (typeof window === 'undefined') {
-    return 'dark'
-  }
-  const storedTheme = window.localStorage.getItem(themeStorageKey)
-  if (storedTheme === 'light' || storedTheme === 'dark') {
-    return storedTheme
-  }
-  return window.matchMedia('(prefers-color-scheme: light)').matches
-    ? 'light'
-    : 'dark'
-}
-
 const timings = {
   out: 660,
   hold: 600,
@@ -44,12 +28,7 @@ const timings = {
 
 type TransitionPhase = 'idle' | 'leaving' | 'entering'
 
-type AppShellProps = {
-  isDark: boolean
-  onThemeToggle: () => void
-}
-
-function AppShell({ isDark, onThemeToggle }: AppShellProps) {
+function AppShell() {
   const [phase, setPhase] = useState<TransitionPhase>('idle')
   const timeoutsRef = useRef<number[]>([])
   const navigate = useNavigate()
@@ -181,23 +160,15 @@ function AppShell({ isDark, onThemeToggle }: AppShellProps) {
   )
 }
 export default function App() {
-  const [theme, setTheme] = useState<Theme>(() => getInitialTheme())
-  const isDark = theme === 'dark'
-
   useEffect(() => {
     const root = document.documentElement
-    root.dataset.theme = theme
-    root.style.colorScheme = theme
-    window.localStorage.setItem(themeStorageKey, theme)
-  }, [theme])
-
-  const handleThemeToggle = () => {
-    setTheme((current) => (current === 'dark' ? 'light' : 'dark'))
-  }
+    root.dataset.theme = 'dark'
+    root.style.colorScheme = 'dark'
+  }, [])
   return (
     <div className="app-container">
       <BrowserRouter>
-        <AppShell isDark={isDark} onThemeToggle={handleThemeToggle} />
+        <AppShell />
       </BrowserRouter>
 
       <footer className="site-footer">
