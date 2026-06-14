@@ -89,8 +89,8 @@ a {
   --pt-in: 760ms;
   --pt-stagger: 70ms;
   --pt-ease: cubic-bezier(0.7, 0, 0.2, 1);
-  --pt-color-a: var(--color-indigo);
-  --pt-color-b: var(--color-accent);
+  --pt-color-a: #040814;
+  --pt-color-b: #0a1a4a ;
 }
 
 .page-transition.is-leaving,
@@ -272,7 +272,6 @@ a {
   margin: 8px auto 12px;
   border-radius: 999px;
   background: transparent;
-  border: 3px solid rgba(123, 129, 255, 0.6);
 }
 
 .about-avatar img {

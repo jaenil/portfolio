@@ -61,7 +61,7 @@ const projects = [
     title: "OCEAS",
     kind: "Course Project",
     description:
-      "Built a proctored online coding exam platform with role-based access (Admin, Instructor, Student), multi-language execution via JDoodle, and client-side face detection using MediaPipe Tasks Vision with exam-lock enforcement. ",
+      "Built a proctored online coding exam platform with role-based access, multi-language execution via JDoodle, client-side face detection with MediaPipe Tasks Vision, and exam-lock enforcement.",
     stack: [
       "TypeScript",
       "Express",

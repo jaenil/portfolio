@@ -1,5 +1,4 @@
 import { useEffect, useMemo, useRef, useState } from "react"
-
 import avatarPortrait from "../assets/pic.jpg"
 import sunflowerAudio from "../assets/songs/sunflower.mp3"
 import hereWeGoAudio from "../assets/songs/here_we_go.mp3"
@@ -7,7 +6,20 @@ import seeYouAgainAudio from "../assets/songs/see_you_again.mp3"
 import sunflowerCover from "../assets/covers/sunflower.jpeg"
 import pumpedUpKicksCover from "../assets/covers/pumped-up-kicks.jpeg"
 import seeYouAgainCover from "../assets/covers/see-you-again.jpeg"
-
+const ignus_logo = Object.values(
+  import.meta.glob("../assets/ignus_logo.png", {
+    eager: true,
+    query: "?w=1100&format=webp&quality=80",
+    import: "default",
+  })
+) as string[]
+const oceas_logo = Object.values(
+  import.meta.glob("../assets/oceas.png", {
+    eager: true,
+    query: "?w=1100&format=webp&quality=80",
+    import: "default",
+  })
+) as string[]
 const playlist = [
   {
     id: "energy",
@@ -303,26 +315,24 @@ export default function Home() {
   {
     id: "oceas",
     title: "Oceas",
-    description: "Open-source project on GitHub.",
+    description: "Proctored coding exam platform with multi-language execution and face detection.",
     href: "https://github.com/jaenil/oceas",
-    cover:
-      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80",
+    cover:oceas_logo[0],
   },
   {
-    id: "agents",
-    title: "Agents",
-    description: "Open-source project on GitHub.",
+    id: "finsage",
+    title: "FinSage",
+    description: "Multi-agent trading assistant with explainable technical & sentiment analysis.",
     href: "https://github.com/jaenil/agents",
     cover:
-      "https://images.unsplash.com/photo-1518779578993-ec3579fee39f?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1400&q=80",
   },
   {
     id: "ignus-pre-reg",
     title: "Ignus Pre-Reg",
-    description: "Open-source project on GitHub.",
+    description: "Scaled IIT Jodhpur's Ignus '26 website to 6,000+ users with 99.99% uptime.",
     href: "https://github.com/AadityaSharma1001/Ignus-Pre-Reg",
-    cover:
-      "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1200&q=80",
+    cover:ignus_logo[0],
   },
 ] as const
 const [activeFeature, setActiveFeature] = useState(0)
@@ -373,9 +383,7 @@ useEffect(() => {
       <section className="home-layout">
         <div className="about-shell">
           <div className="about-header">
-            <button className="menu-button" type="button" aria-label="Open menu">
-              <i className="bi bi-list" aria-hidden="true" />
-            </button>
+            
 
             <div className="about-heading">
               <i className="bi bi-stars sparkle-icon" aria-hidden="true" />
