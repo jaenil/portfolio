@@ -179,7 +179,7 @@ export default function App() {
           </div>
           <div className="footer-links">
             <span className="footer-meta">Last updated: {__LAST_UPDATED__}</span>
-            <a className="footer-link" href="../public/resume.pdf" target="_blank">
+            <a className="footer-link" href="https://drive.google.com/file/d/17jPPoYw_9EY2jDDFVcxmrUBjyybAJPrW/view?usp=sharing" target="_blank">
               <span>Resume</span>
               <i className="bi bi-arrow-up-right" aria-hidden="true" />
             </a>
