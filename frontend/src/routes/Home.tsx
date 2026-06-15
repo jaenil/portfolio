@@ -572,7 +572,7 @@ useEffect(() => {
             <div className="stat-card codeforces-card">
               <div className="stat-value">{codeforcesRating}</div>
               <div className="stat-label">Codeforces Rating</div>
-              <div className="stat-caption">@{codeforcesHandle}</div>
+              <div className="stat-caption"><a href="https://codeforces.com/profile/jp_1" target="_blank">@{codeforcesHandle} </a></div>
             </div>
           </div>
         </div>
