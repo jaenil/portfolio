@@ -37,7 +37,10 @@ function AppShell() {
     timeoutsRef.current.forEach((id) => window.clearTimeout(id))
     timeoutsRef.current = []
   }
-
+  useEffect(() => {
+    window.scrollTo(0,0)
+    return
+  }, [location.pathname])
   useEffect(() => {
     return () => clearTimers()
   }, [])
