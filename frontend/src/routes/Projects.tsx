@@ -53,6 +53,7 @@ const projects = [
       "REST APIs",
     ],
     href: "https://github.com/AadityaSharma1001/Ignus-Pre-Reg/",
+    website: "https://ignus.iitj.ac.in",
     cover:
       ignus_logo[0],
   },
@@ -71,6 +72,7 @@ const projects = [
       "MediaPipe",
     ],
     href: "https://github.com/jaenil/oceas",
+    website: "https://oceas-lpgq.onrender.com/",
     cover:
       oceas_logo[0],
   },
@@ -153,14 +155,26 @@ export default function Projects() {
             <p className="projects-preview-desc">
               {activeProject.description}
             </p>
-            <a
-              className="projects-preview-cta"
-              href={activeProject.href}
-              target="_blank"
-              rel="noreferrer"
-            >
-              GitHub
-            </a>
+            <div className="projects-preview-actions">
+              <a
+                className="projects-preview-cta"
+                href={activeProject.href}
+                target="_blank"
+                rel="noreferrer"
+              >
+                GITHUB
+              </a>
+              {"website" in activeProject && activeProject.website && (
+                <a
+                  className="projects-preview-cta"
+                  href={activeProject.website}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  DEPLOYED SITE
+                </a>
+              )}
+            </div>
           </div>
         </article>
 
